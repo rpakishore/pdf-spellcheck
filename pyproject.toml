@@ -1,0 +1,16 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "ae_spellcheck"
+authors = [{name = "Arun Kishore", email = "pypi@rpakishore.co.in"}]
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dynamic = ["version", "description"]
+dependencies = [
+    "PyPDF2"
+]
+
+[project.urls]
+Home = "https://github.com/rpakishore/pdf-spellcheck"
