@@ -26,7 +26,6 @@ def load_dictionaries(dict_files: list[Path]) -> set[str]:
 
 
 def load_dictionary(filepath: Path) -> set[str]:
-
     contents: list[str] = filepath.read_text(encoding="utf-8").splitlines()
     dictionary: set[str] = set([x.strip().upper() for x in contents])
     return dictionary
