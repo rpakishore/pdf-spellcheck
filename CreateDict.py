@@ -6,6 +6,8 @@
 # ]
 # ///
 
+# uv run --with pymupdf --with streamlit streamlit run CreateDict.py
+
 import re
 from functools import cached_property
 from pathlib import Path
@@ -125,7 +127,8 @@ class Pdf:
         return list(misspelled.values())
 
 
-st.title("PDF Spell Checker")
+st.title("PDF Dictionary Generator")
+st.caption("Use this script to find and add new dictionary words from existing pdfs.")
 
 pdf_file = st.file_uploader("Upload PDF", type=["pdf"])
 
@@ -168,6 +171,10 @@ st.divider()
 if misspelled_words:
     st.subheader(f"Misspelled Words - *{len(misspelled_words)}* words found.")
 
+    st.write("#### How to use this")
+    st.write(
+        "- In the below table look through **1st column** (`Misspelled Word`) and see if you notice any word that can be added to the dictionary. If **yes**, click the checkbox."
+    )
     df_data = {
         "Include": [False for _ in range(len(misspelled_words))],
         "MisspelledWord": [x["original"] for x in misspelled_words],
@@ -203,7 +210,9 @@ if misspelled_words:
         st.stop()
 
     dict_to_update = st.selectbox(
-        "Dict to Update", options=[file.stem for file in avl_dict_files]
+        "Dictionary to Update (Choose one)",
+        options=[file.stem for file in avl_dict_files],
+        help="Clicking `Update` will update the selected words to chosen dictionary.",
     )
     if st.button("Update"):
         st.write()

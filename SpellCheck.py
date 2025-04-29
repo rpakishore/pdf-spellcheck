@@ -8,7 +8,6 @@
 
 import csv
 
-# import pickle
 import re
 import tempfile
 from functools import cached_property
@@ -30,16 +29,8 @@ def load_dictionaries(dict_files: list[Path]) -> set[str]:
 
 
 def load_dictionary(filepath: Path) -> set[str]:
-    # pkl_file = filepath.with_suffix(".pkl")
-    # if pkl_file.exists() and pkl_file.is_file():
-    #    with open(pkl_file, "rb") as f:
-    #        return pickle.load(f)
-    # else:
     contents: list[str] = filepath.read_text(encoding="utf-8").splitlines()
     dictionary: set[str] = set([x.strip().upper() for x in contents])
-
-    # with open(pkl_file, "wb") as f:
-    #    pickle.dump(dictionary, f, protocol=pickle.HIGHEST_PROTOCOL)
     return dictionary
 
 

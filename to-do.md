@@ -1,65 +1,64 @@
-```markdown
 # **To-Do List: PDF Spell Checker Tool**  
 **Based on PRD v1.0**  
 
 ---
 
 ## **1. Setup & Configuration**  
-- [ ] Create Python 3.12 virtual environment.  
-- [ ] Install dependencies: `streamlit`, `pymupdf`.  
-- [ ] Initialize Git repository with `.gitignore` for Python/IDE files.  
+- [x] Create Python 3.12 virtual environment.  
+- [x] Install dependencies: `streamlit`, `pymupdf`.  
+- [x] Initialize Git repository with `.gitignore` for Python/IDE files.  
 
 ---
 
 ## **2. Backend Implementation**  
 ### **Core Logic**  
-- [ ] **PDF Processing**  
-  - [ ] Write function to extract words + bounding boxes/pages using `pymupdf`.  
-  - [ ] Handle hyphenated words as single tokens (e.g., "state-of-the-art").  
-- [ ] **Word Cleaning**  
-  - [ ] Implement regex to strip non-alphanumeric/hyphen characters.  
-  - [ ] Convert words to lowercase.  
-  - [ ] Filter out words with digits (e.g., "B2B").  
-- [ ] **Dictionary Handling**  
-  - [ ] Load `.txt` files into a lowercase set, ignoring empty lines.  
-  - [ ] Validate dictionary format (UTF-8, one word per line).  
-- [ ] **Spell Check**  
-  - [ ] Compare cleaned words against dictionary set.  
-  - [ ] Track misspelled words with page numbers and counts.  
-- [ ] **Highlighting**  
-  - [ ] Implement `highlight_pdf()` to add yellow cloud annotations using `pymupdf`.  
+- [x] **PDF Processing**  
+  - [x] Write function to extract words + bounding boxes/pages using `pymupdf`.  
+  - [x] Handle hyphenated words as single tokens (e.g., "state-of-the-art").  
+- [x] **Word Cleaning**  
+  - [x] Implement regex to strip non-alphanumeric/hyphen characters.  
+  - [x] Convert words to lowercase.  
+  - [x] Filter out words with digits (e.g., "B2B").  
+- [x] **Dictionary Handling**  
+  - [x] Load `.txt` files into a lowercase set, ignoring empty lines.  
+  - [x] Validate dictionary format (UTF-8, one word per line).  
+- [x] **Spell Check**  
+  - [x] Compare cleaned words against dictionary set.  
+  - [x] Track misspelled words with page numbers and counts.  
+- [x] **Highlighting**  
+  - [x] Implement `highlight_pdf()` to add yellow cloud annotations using `pymupdf`.  
 
 ### **Output Generation**  
-- [ ] **CSV Export**  
-  - [ ] Generate CSV with columns: `Word, Occurrences, Pages`.  
-- [ ] **PDF Export**  
-  - [ ] Save a copy of the PDF with annotations for selected words.  
+- [x] **CSV Export**  
+  - [x] Generate CSV with columns: `Word, Occurrences, Pages`.  
+- [x] **PDF Export**  
+  - [x] Save a copy of the PDF with annotations for selected words.  
 
 ---
 
 ## **3. Frontend (Streamlit GUI)**  
-- [ ] **File Uploaders**  
-  - [ ] Add PDF upload widget (required, accept `.pdf` only).  
-  - [ ] Add dictionary upload widget (accept `.txt`, multiple files allowed).  
-- [ ] **Process Button**  
-  - [ ] Trigger backend processing on click.  
-  - [ ] Show loading spinner during execution.  
-- [ ] **Results Display**  
-  - [ ] Render table of misspelled words with checkboxes.  
-  - [ ] Show occurrence counts and page numbers for selected words.  
-- [ ] **Export Buttons**  
-  - [ ] Add "Export to CSV" button (enabled only if words are selected).  
-  - [ ] Add "Generate Highlighted PDF" button (enabled only if words are selected).  
+- [x] **File Uploaders**  
+  - [x] Add PDF upload widget (required, accept `.pdf` only).  
+  - [x] Add dictionary upload widget (accept `.txt`, multiple files allowed).  
+- [x] **Process Button**  
+  - [x] Trigger backend processing on click.  
+  - [x] Show loading spinner during execution.  
+- [x] **Results Display**  
+  - [x] Render table of misspelled words with checkboxes.  
+  - [x] Show occurrence counts and page numbers for selected words.  
+- [x] **Export Buttons**  
+  - [x] Add "Export to CSV" button (enabled only if words are selected).  
+  - [x] Add "Generate Highlighted PDF" button (enabled only if words are selected).  
 
 ---
 
 ## **4. Error Handling & Validation**  
-- [ ] **Input Validation**  
-  - [ ] Show error if no PDF/dictionary is uploaded.  
-  - [ ] Reject non-PDF/non-TXT files with alerts.  
-- [ ] **Edge Cases**  
-  - [ ] Handle empty/malformed dictionaries (skip invalid lines).  
-  - [ ] Show "No misspellings found" message if results are empty.  
+- [x] **Input Validation**  
+  - [x] Show error if no PDF/dictionary is uploaded.  
+  - [x] Reject non-PDF/non-TXT files with alerts.  
+- [x] **Edge Cases**  
+  - [x] Handle empty/malformed dictionaries (skip invalid lines).  
+  - [x] Show "No misspellings found" message if results are empty.  
 
 ---
 
@@ -92,10 +91,3 @@
 - [ ] Draft release notes for v1.0.  
 
 ---
-
-**Status Tracking**  
-- **Priority Legend**:  
-  - 🔴 High (Blockers/Core Features)  
-  - 🟡 Medium (Enhancements)  
-  - 🔵 Low (Documentation/Tests)  
-```

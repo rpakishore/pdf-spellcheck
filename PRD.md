@@ -1,7 +1,7 @@
 # **Product Requirements Document (PRD): PDF Spell Checker Tool**  
 **Version:** 1.0  
-**Author:** [Your Name]  
-**Date:** [YYYY-MM-DD]  
+**Author:** Arun Kishore  
+**Date:** 2025-03-02 
 
 ---
 
