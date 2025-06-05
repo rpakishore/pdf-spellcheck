@@ -6,9 +6,11 @@ cd /d "%~dp0"
 uv --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo uv is not installed. Installing now...
+    set DO_NOT_TRACK=1
     powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
     echo  Installation complete. Relaunch File...
     TIMEOUT /T 10
+    set DO_NOT_TRACK=
     exit /b
 )
 
