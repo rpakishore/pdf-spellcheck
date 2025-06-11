@@ -32,6 +32,22 @@ A Streamlit application designed to identify potential spelling errors within PD
     * Click "Export to CSV" to download a CSV file containing the selected words.
     * Click "Generate Highlighted PDF" to download a new PDF with the selected words highlighted.
 
+## Project Structure
+
+```
+├── SpellCheck.py          # Main Streamlit application
+├── CreateDict.py          # Dictionary creation utility
+├── Launch_SpellCheck.bat  # Windows launcher script
+├── Launch_CreateDict.bat  # Dictionary creator launcher
+├── utils/                 # Utility modules
+│   ├── dictionary.py      # Dictionary loading and processing
+│   ├── html.py           # HTML and CSS templates
+│   └── pdf.py            # PDF processing utilities
+├── default_dict/          # Dictionary files
+│   └── *.txt             # Dictionary text files
+└── README.md             # This file
+```
+
 ## Dictionary Files
 
 * Dictionary files must be plain text (`.txt`).
@@ -48,7 +64,6 @@ A Streamlit application designed to identify potential spelling errors within PD
     * A copy of the original PDF.
     * Instances of the selected misspelled words are marked with a semi-transparent yellow highlight.
 
-
 ## Contact
 
     Arun Kishore
@@ -59,4 +74,4 @@ A Streamlit application designed to identify potential spelling errors within PD
 
 ---
 
-> **Version**: 0.1.0 (Updated: 04/29/2025)
+> **Version**: 1.0.0 (Updated: 06/11/2025)

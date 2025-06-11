@@ -15,7 +15,7 @@ if %errorlevel% neq 0 (
 )
 
 :: Run 'uv run streamlit run main.py'
-echo Running 'App'...
+echo Running 'Spell Check App'...
 uv run --with streamlit==1.43.2 --with pymupdf==1.25.4 streamlit run SpellCheck.py --browser.gatherUsageStats=False --server.port=81 --theme.base="light" --theme.primaryColor="#57b431"
 
 pause

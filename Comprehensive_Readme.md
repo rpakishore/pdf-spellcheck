@@ -154,6 +154,10 @@ uv run streamlit run SpellCheck.py --browser.gatherUsageStats=False
 ├── CreateDict.py          # Dictionary creation utility
 ├── Launch_SpellCheck.bat  # Windows launcher script
 ├── Launch_CreateDict.bat  # Dictionary creator launcher
+├── utils/                 # Utility modules
+│   ├── dictionary.py      # Dictionary loading and processing
+│   ├── html.py           # HTML and CSS templates
+│   └── pdf.py            # PDF processing utilities
 ├── default_dict/          # Engineering dictionary files
 │   ├── General.txt        # General engineering terms
 │   ├── Mechanical.txt     # Mechanical engineering terms
@@ -177,6 +181,10 @@ uv run streamlit run SpellCheck.py --browser.gatherUsageStats=False
 - **Word Processing:** Regex-based cleaning and normalization
 - **Data Handling:** Pandas for result management and export
 - **Caching:** Streamlit caching for dictionary loading performance
+- **Modular Design:** Separated utilities for better maintainability:
+  - `dictionary.py`: Dictionary loading and word processing
+  - `html.py`: UI templates and styling
+  - `pdf.py`: PDF processing and highlighting
 
 ## Testing
 
@@ -317,5 +325,5 @@ Engineering professionals can customize dictionaries by:
 
 ---
 
-*Last updated: May 2025 by Arun Kishore*
+*Last updated: June 2025 by Arun Kishore*
 *Version: 1.0 - Production Ready*
