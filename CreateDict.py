@@ -16,7 +16,8 @@ import fitz  # PyMuPDF
 import pandas as pd
 import streamlit as st
 
-st.markdown("""
+st.markdown(
+    """
     <style>
     /* Global styles */
     .stApp {
@@ -117,7 +118,9 @@ st.markdown("""
         font-style: italic;
     }
     </style>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
 st.markdown(
     """
@@ -126,8 +129,9 @@ st.markdown(
         Structural EIT, Vancouver Office
     </div>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
+
 
 @st.cache_data
 def load_dictionaries(dict_files: list[Path]) -> set[str]:
@@ -236,15 +240,24 @@ class Pdf:
         return list(misspelled.values())
 
 
-st.markdown('<h1 class="main-header">PDF Dictionary Generator</h1>', unsafe_allow_html=True)
-st.markdown("""
+st.markdown(
+    '<h1 class="main-header">PDF Dictionary Generator</h1>', unsafe_allow_html=True
+)
+st.markdown(
+    """
     <p style='color: #64748B; font-size: 1.1rem; margin-bottom: 2rem;'>
         Use this tool to find and add new dictionary words from existing PDFs. Upload a PDF, review the misspelled words,
         and add valid words to your dictionary.
     </p>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
-pdf_file = st.file_uploader("Upload PDF", type=["pdf"], help="Upload a PDF file to extract potential dictionary words")
+pdf_file = st.file_uploader(
+    "Upload PDF",
+    type=["pdf"],
+    help="Upload a PDF file to extract potential dictionary words",
+)
 
 if not pdf_file:
     st.info("Please upload a PDF file to begin processing")
@@ -261,7 +274,7 @@ chosen_dicts = st.multiselect(
     label="Select Dictionaries",
     options=[file.stem for file in avl_dict_files],
     default=[file.stem for file in avl_dict_files],
-    help="Choose which dictionaries to use for word checking"
+    help="Choose which dictionaries to use for word checking",
 )
 
 dict_files = [
@@ -281,18 +294,37 @@ else:
 
 st.divider()
 
+st.markdown(
+    """
+    <div class="stInfo">
+        <strong>FAQ: How does word cleaning and dictionary matching work?</strong><br>
+        <ul>
+            <li>When processing your PDF, the tool <b>removes punctuation and symbols</b> (like brackets, commas, periods) and converts all words to <b>UPPERCASE</b> before checking against the dictionary.</li>
+            <li>When you add a word to the dictionary, it is the <b>cleaned version</b> (without punctuation, in uppercase) that is saved. For example, adding <code>NBCC</code> will also cover <code>(NBCC)</code>, <code>NBCC,</code>, <code>nbcc</code>, etc.</li>
+            <li>Abbreviations and units (like <code>MPa</code>) will be stored as <code>MPA</code> in the dictionary, and all case variations will be recognized.</li>
+            <li>There is no need to add bracketed or punctuated versions separately—just add the cleaned word once.</li>
+        </ul>
+        <span class="stCaption">If you have questions, check the dictionary text file to see exactly what was added.</span>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
 if misspelled_words:
     st.markdown(
         f'<h2 class="sub-header">Results - {len(misspelled_words)} Potential Words Found</h2>',
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
-    st.markdown("""
+    st.markdown(
+        """
         <p style='color: #64748B; margin-bottom: 1rem;'>
             Review the words below and select those that should be added to your dictionary. 
             Words are shown in their original form and after cleaning.
         </p>
-    """, unsafe_allow_html=True)
+    """,
+        unsafe_allow_html=True,
+    )
 
     df_data = {
         "Include": [False for _ in range(len(misspelled_words))],
@@ -340,14 +372,19 @@ if misspelled_words:
         st.info("Select words to add to the dictionary")
         st.stop()
 
-    st.markdown('<h3 style="color: #2563EB; margin: 1rem 0;">Update Dictionary</h3>', unsafe_allow_html=True)
+    st.markdown(
+        '<h3 style="color: #2563EB; margin: 1rem 0;">Update Dictionary</h3>',
+        unsafe_allow_html=True,
+    )
     dict_to_update = st.selectbox(
         "Select Dictionary to Update",
         options=[file.stem for file in avl_dict_files],
-        help="Choose which dictionary to add the selected words to"
+        help="Choose which dictionary to add the selected words to",
     )
-    
-    if st.button("Update Dictionary", help="Add selected words to the chosen dictionary"):
+
+    if st.button(
+        "Update Dictionary", help="Add selected words to the chosen dictionary"
+    ):
         with open(
             (Path(__file__).parent / "default_dict" / f"{dict_to_update}.txt"), "a"
         ) as f:
