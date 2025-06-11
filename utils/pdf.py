@@ -83,13 +83,8 @@ class Pdf:
 
 def clean_word(word):
     """Clean and normalize words according to PRD rules"""
-    # First remove all non-alphanumeric characters except hyphens
     cleaned = re.sub(r"[^A-Za-z0-9-]", "", word)
-    # Convert to uppercase
-    cleaned = cleaned.upper()
-    # Remove hyphens
-    cleaned = cleaned.replace("-", "")
-    # Check for numbers
+    cleaned = cleaned.upper().strip("-").strip()
     if any(c.isdigit() for c in cleaned):
         return None
     return cleaned if cleaned else None

@@ -10,13 +10,13 @@ from utils.pdf import Pdf, clean_word
     "input_word,expected",
     [
         ("Hello", "HELLO"),
-        ("Hello-World", "HELLOWORLD"),
+        ("Hello-World", "HELLO-WORLD"),
         ("Hello123", None),  # Words with numbers should return None
-        ("Hello-World!", "HELLOWORLD"),
+        ("Hello-World!", "HELLO-WORLD"),
         ("", None),
         ("   ", None),
         ("123", None),
-        ("Hello-World-", "HELLOWORLD"),
+        ("Hello-World-", "HELLO-WORLD"),
     ],
 )
 def test_clean_word(input_word, expected):
